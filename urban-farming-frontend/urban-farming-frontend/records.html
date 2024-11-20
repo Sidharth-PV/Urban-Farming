@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Records Management - Urban Farming System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <i class="fas fa-leaf logo-icon"></i>
+                <h1 class="logo">Urban Farming</h1>
+            </div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="farmers.html" class="nav-link"><i class="fas fa-users"></i> Farmers</a></li>
+                    <li><a href="fields.html" class="nav-link"><i class="fas fa-map-marked-alt"></i> Fields</a></li>
+                    <li><a href="crops.html" class="nav-link"><i class="fas fa-seedling"></i> Crops</a></li>
+                    <li><a href="soils.html" class="nav-link"><i class="fas fa-layer-group"></i> Soils</a></li>
+                    <li><a href="fertilizers.html" class="nav-link"><i class="fas fa-fill-drip"></i> Fertilizers</a></li>
+                    <li><a href="weather.html" class="nav-link"><i class="fas fa-cloud-sun"></i> Weather</a></li>
+                    <li><a href="advisers.html" class="nav-link"><i class="fas fa-user-tie"></i> Advisers</a></li>
+                    <li><a href="records.html" class="nav-link active"><i class="fas fa-clipboard-list"></i> Records</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Records Management</h1>
+            <p>Track and monitor all system activities and changes</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-secondary" onclick="toggleFilters()">
+                    <i class="fas fa-filter"></i> Filter
+                </button>
+                <button class="btn btn-secondary" onclick="exportRecords()">
+                    <i class="fas fa-download"></i> Export
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search records..." onkeyup="searchRecords()">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Timeline View Toggle -->
+            <div class="view-toggle">
+                <button class="btn btn-secondary active" onclick="switchView('timeline')">
+                    <i class="fas fa-stream"></i> Timeline View
+                </button>
+                <button class="btn btn-secondary" onclick="switchView('grid')">
+                    <i class="fas fa-th"></i> Grid View
+                </button>
+            </div>
+
+            <!-- Records Timeline -->
+            <div id="recordsTimeline" class="records-timeline">
+                <!-- Records will be dynamically loaded here -->
+            </div>
+
+            <!-- Records Grid (Initially Hidden) -->
+            <div id="recordsGrid" class="records-grid" style="display: none;">
+                <!-- Records will be dynamically loaded here in grid format -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be dynamically generated -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-leaf logo-icon"></i>
+                    <h3>Urban Farming</h3>
+                    <p>Empowering urban farmers with modern tools</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Urban Farming Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/records.js"></script>
+</body>
+</html>

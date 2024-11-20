@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crops Management - Urban Farming System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <i class="fas fa-leaf logo-icon"></i>
+                <h1 class="logo">Urban Farming</h1>
+            </div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="farmers.html" class="nav-link"><i class="fas fa-users"></i> Farmers</a></li>
+                    <li><a href="fields.html" class="nav-link"><i class="fas fa-map-marked-alt"></i> Fields</a></li>
+                    <li><a href="crops.html" class="nav-link active"><i class="fas fa-seedling"></i> Crops</a></li>
+                    <li><a href="soils.html" class="nav-link"><i class="fas fa-layer-group"></i> Soils</a></li>
+                    <li><a href="fertilizers.html" class="nav-link"><i class="fas fa-fill-drip"></i> Fertilizers</a></li>
+                    <li><a href="weather.html" class="nav-link"><i class="fas fa-cloud-sun"></i> Weather</a></li>
+                    <li><a href="advisers.html" class="nav-link"><i class="fas fa-user-tie"></i> Advisers</a></li>
+                    <li><a href="records.html" class="nav-link"><i class="fas fa-clipboard-list"></i> Records</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Crops Management</h1>
+            <p>Manage and monitor all crops in the system</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="openAddCropModal()">
+                    <i class="fas fa-plus"></i> Add New Crop
+                </button>
+                <button class="btn btn-secondary" onclick="toggleFilters()">
+                    <i class="fas fa-filter"></i> Filter
+                </button>
+                <button class="btn btn-secondary" onclick="exportCrops()">
+                    <i class="fas fa-download"></i> Export
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search crops..." onkeyup="searchCrops()">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Crops Grid -->
+            <div class="crops-grid" id="cropsGrid">
+                <!-- Crops will be dynamically loaded here -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be dynamically generated -->
+            </div>
+
+            <!-- Add/Edit Crop Modal -->
+            <div id="cropModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2 id="modalTitle">Add New Crop</h2>
+                    <form id="cropForm" onsubmit="handleCropSubmit(event)">
+                        <div class="form-group">
+                            <label for="cropId">Crop ID:</label>
+                            <input type="text" id="cropId" name="crop_id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cropVariety">Variety:</label>
+                            <input type="text" id="cropVariety" name="variety" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="plantedMonth">Planted Month:</label>
+                            <input type="month" id="plantedMonth" name="planted_month" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="harvestingDate">Harvesting Date:</label>
+                            <input type="date" id="harvestingDate" name="harvesting_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity:</label>
+                            <input type="number" id="quantity" name="quantity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fieldId">Field ID:</label>
+                            <input type="text" id="fieldId" name="field_id" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Delete Confirmation Modal -->
+            <div id="deleteModal" class="modal">
+                <div class="modal-content">
+                    <h2>Confirm Delete</h2>
+                    <p>Are you sure you want to delete this crop?</p>
+                    <div class="form-actions">
+                        <button class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+                        <button class="btn btn-secondary" onclick="closeDeleteModal()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer content remains the same -->
+    </footer>
+
+    <script src="js/crops.js"></script>
+</body>
+</html>
